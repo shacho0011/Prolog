@@ -11,14 +11,12 @@ list_member(Element, List):-
 
 
 
+remove_duplicate([],[]).
 
-remove_duplicate(List, Result):-
-	
-	List = [H1|T1],
-	
-	(   
-		( list_member(H1,T1), remove_duplicate(T1,R ) );
-	    
-		( Result = [H|T],H=H1, remove_duplicate(T1,R ) )
-	
-	).
+remove_duplicate(L, R):-
+
+L=[H|T],
+(	
+		(list_member(H,T), remove_duplicate(T,R));
+		(R=[H1|T1],H1 = H, remove_duplicate(T,T1))
+).
