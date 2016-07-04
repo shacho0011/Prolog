@@ -8,20 +8,6 @@ list_member(Element, List):-
  list_member(Element, T)
 	
 	).
-
-
-not_member(Element, List):-
-	
-	List = [H|T],
-	
-	(
-		   
-		H /== Element;
- not_member(Element, T)
-	
-	).
-
-
 remove_duplicate([],[]).
 remove_duplicate(L, R):-
 
