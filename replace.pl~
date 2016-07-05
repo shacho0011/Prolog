@@ -1,7 +1,0 @@
-replace(Select, With, [], []).
-replace(Select, With, List, R):-
-	List = [H|T],
-	(
-		   (H==Select, replace(Select, With, T, With)),!;
-		   (replace(Select, With, T, H))
-	).
