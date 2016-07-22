@@ -16,11 +16,7 @@ eight_queen_backtrack(8, SolutionSoFar) :-
 	!.
 eight_queen_backtrack(CurrentRow,SolutionSoFar) :-
 	(place_queen(CurrentColumn),
-		(no_clash(CurrentRow,CurrentColumn,SolutionSoFar),NextRow is CurrentRow + 1, eight_queen_backtrack(NextRow,[CurrentRow/CurrentColumn|SolutionSoFar]));
-		(
-		    (CurrentColumn == 7, CurrentRow is CurrentRow - 1, eight_queen_backtrack(CurrentRow,SolutionSoFar));
-		    (eight_queen_backtrack(CurrentRow,SolutionSoFar))
-		)
+		(no_clash(CurrentRow,CurrentColumn,SolutionSoFar),NextRow is CurrentRow + 1, eight_queen_backtrack(NextRow,[CurrentRow/CurrentColumn|SolutionSoFar]))
 	).
 
 no_clash(_,_,[]).
